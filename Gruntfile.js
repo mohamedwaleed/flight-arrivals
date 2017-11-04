@@ -28,6 +28,12 @@ module.exports = function (grunt) {
   // Define the configuration for all the tasks
   grunt.initConfig({
     buildcontrol: {
+      options: {
+        dir: 'dist',
+        commit: true,
+        push: true,
+        message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
+      },
       pages: {
         options: {
           remote: 'git@github.com/mohamedwaleed/flight-arrivals.git',
