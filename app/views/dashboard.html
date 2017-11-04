@@ -1,0 +1,29 @@
+<div id = "slider">
+  
+  <div id="color_layer">
+    <div class="input-area">
+
+        <h3 id="banner-label">Choose your best flight</h3>
+      
+      <form ng-submit="searchFlights()" class="form-inline center">
+        <div class="form-group">
+          <div class="input-group">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-upload"></span></span>
+            <input ng-model="origin" type="text" class="form-control" placeholder="origin">
+          </div>
+
+        </div>
+        <div class="form-group">
+          <div class="input-group">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-download"></span></span>
+            <input ng-model="dest" type="text" class="form-control" placeholder="destination">
+          </div>
+        </div>
+        <button type="submit" class="btn btn-success">Search flights <span class="glyphicon glyphicon-chevron-right"></span></button>
+      </form>
+    </div>
+  </div>
+
+</div>
+
+

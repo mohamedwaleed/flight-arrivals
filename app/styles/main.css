@@ -1,0 +1,60 @@
+/* commons */
+.divide-line {
+  width: 80%;;
+}
+
+.center{
+  text-align: center;
+}
+
+/* main.html */
+
+.logo {
+  margin-top:-10px;
+  width: 50px;
+  height: 45px;
+}
+
+.logo-label {
+  margin-top: 15px;
+  font-family: 'Indie Flower', cursive;
+  font-size:20px;
+}
+
+#slider{
+
+      min-height: 590px;
+      background-image: url('../images/banner1.jpg');
+      background-repeat: none;
+      background-position: center center;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      background-size: cover;
+      -o-background-size: cover;
+      text-align: center;
+  }
+#color_layer{
+  background-color: rgba(222, 80, 65, 0.1);
+  background-repeat: no-repeat;
+  min-height: 590px;
+}
+.input-area {
+  margin-top: 18%;
+  position: absolute;
+  width: 100%;
+}
+
+#banner-label {
+  font-family: 'Lobster', cursive;
+  font-size: 65px; 
+  margin-bottom: 50px;
+}
+
+.loading-spinner {
+  margin:auto; 
+  margin-top: 10px;
+}
+
+.navbar {
+  margin-bottom: 0px;
+}

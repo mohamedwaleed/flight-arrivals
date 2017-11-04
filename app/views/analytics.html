@@ -1,0 +1,54 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-4">
+		</div>
+		<div class="col-md-4 center">
+			<h2>Flights From {{origin}} to {{dest}} <button pdf-save-button="idOne" pdf-name="Flights_From_{{origin}}_to_{{dest}}.pdf" class="btn">Download as pdf</button>
+			</h2>
+
+		</div>
+		<div class="col-md-4">
+		</div>
+	</div>
+	<div pdf-save-content="idOne">
+
+		<div class="row">
+			<div class="col-md-3">
+			</div>
+			<div class="col-md-6 center">
+				<h3>Overall delay ratio : {{overallDelayRatio}} miniuts</h3>
+			</div>
+			<div class="col-md-3">
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-12">
+				<flight-delays flights="flights"></flight-delays>
+			</div>
+
+		
+			
+		</div>
+		<hr class="divide-line">
+		<div class="row">
+			
+			<div class="col-md-12">
+				 <flight-delay-ratios flights="flights"></flight-delay-ratios>
+			</div>
+			
+		</div>
+		<hr class="divide-line">
+		<div class="row">
+			
+			<div class="col-md-12">
+				 <delays-correlation flights="allFlights"></delays-correlation>
+			</div>
+			
+		</div>
+
+		<hr class="divide-line">
+		
+	</div>
+
+</div>

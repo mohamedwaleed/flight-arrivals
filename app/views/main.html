@@ -1,0 +1,20 @@
+<div ng-show="!ready">
+	<md-progress-circular class="loading-spinner md-hue-3" md-diameter="70"></md-progress-circular>
+	<h3 class="center">Intialzing app ...</h3>
+
+</div>
+<div ng-show="ready">
+	<nav class="navbar navbar-default">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <a class="navbar-brand" href="#">
+	        <img class="logo" alt="Brand" src="images/logo.png">
+	      </a>
+	        <label class="logo-label">Flight arrivals</label>
+	    </div>
+	  </div>
+	</nav>
+
+	<div ui-view></div>
+
+</div>
