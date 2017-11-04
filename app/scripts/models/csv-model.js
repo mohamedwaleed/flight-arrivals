@@ -9,20 +9,20 @@ function CsvModel(CsvService) {
     function parseCsvData(data) {
       var parsedData = {}; // array of objects
       var lines = data.split('\n');
-      for(let i = 1 ; i < lines.length; i ++ ) {
-        let line = lines[i];
+      for(var i = 1 ; i < lines.length; i ++ ) {
+        var line = lines[i];
         if(!line){
           continue;
         }
-        let fields = line.split(',');
-        let origin = fields[1].trim().substring(1, fields[1].trim().length - 1);
-        let dest = fields[2].trim().substring(1, fields[2].trim().length - 1);
-        let departureTime = fields[3].trim().substring(1, 3) + ":" + fields[3].trim().substring(3, fields[3].trim().length - 1);
-        let arrivalTime = fields[4].trim().substring(1, 3) + ":" + fields[4].trim().substring(3, fields[4].trim().length - 1);
+        var fields = line.split(',');
+        var origin = fields[1].trim().substring(1, fields[1].trim().length - 1);
+        var dest = fields[2].trim().substring(1, fields[2].trim().length - 1);
+        var departureTime = fields[3].trim().substring(1, 3) + ":" + fields[3].trim().substring(3, fields[3].trim().length - 1);
+        var arrivalTime = fields[4].trim().substring(1, 3) + ":" + fields[4].trim().substring(3, fields[4].trim().length - 1);
         if(fields[5] === ""){
           fields[5] = '0.0';
         }
-        let flightObject = {
+        var flightObject = {
           date: fields[0],
           origin: origin,
           dest: dest,
@@ -72,7 +72,7 @@ function CsvModel(CsvService) {
       var flightsArray = [];
       // can use lodash to reduce the logic
       var keys = Object.keys(thisModel.data);
-      for(let i = 0 ; i < keys.length ; i ++ ) {
+      for(var i = 0 ; i < keys.length ; i ++ ) {
           flightsArray = flightsArray.concat(thisModel.data[keys[i]]);
       }
       return flightsArray;

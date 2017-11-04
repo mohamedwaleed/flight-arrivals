@@ -8,7 +8,7 @@
 // 'test/spec/**/*.js'
 
 module.exports = function (grunt) {
-
+  grunt.loadNpmTasks('grunt-build-control');
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
 
@@ -27,7 +27,14 @@ module.exports = function (grunt) {
 
   // Define the configuration for all the tasks
   grunt.initConfig({
-
+    buildcontrol: {
+      pages: {
+        options: {
+          remote: 'git@github.com/mohamedwaleed/flight-arrivals.git',
+          branch: 'gh-pages'
+        }
+      }
+    },
     // Project settings
     yeoman: appConfig,
 
@@ -380,7 +387,8 @@ module.exports = function (grunt) {
             '*.{ico,png,txt}',
             '*.html',
             'images/{,*/}*.{webp}',
-            'styles/fonts/{,*/}*.*'
+            'styles/fonts/{,*/}*.*',
+            '*.csv'
           ]
         }, {
           expand: true,
@@ -480,4 +488,5 @@ module.exports = function (grunt) {
     'test',
     'build'
   ]);
+
 };

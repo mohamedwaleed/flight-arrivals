@@ -21,11 +21,10 @@ angular.module('flightArrivalApp')
     });
     $scope.fullData = [];
     var keys = Object.keys(flightDistanceMap);
-    for(let i = 0 ; i < keys.length ; i ++ ) {
-        let distance = keys[i];
-        let avgDelayas = flightDistanceMap[distance].sum / flightDistanceMap[distance].count;
+    for(var i = 0 ; i < keys.length ; i ++ ) {
+        var distance = keys[i];
+        var avgDelayas = flightDistanceMap[distance].sum / flightDistanceMap[distance].count;
         $scope.fullData.push({x: distance, y: avgDelayas});
-        console.log({x: distance, y: avgDelayas});
     }
 
 	$scope.data =  [$scope.fullData];

@@ -7,7 +7,7 @@ angular.module('flightArrivalApp')
   	$scope.dest = $stateParams.dest;
     function calculateOverallDelayRatio(flights) {
       var avaregeRatio = 0.0;
-      for(let i = 0 ; i < flights.length  ; i ++ ) {
+      for(var i = 0 ; i < flights.length  ; i ++ ) {
           var flightDelayRatio = (flights[i].arrivalDelay / flights[i].elapsedTime) * 100;
           avaregeRatio +=  flightDelayRatio / flights.length;
       }
