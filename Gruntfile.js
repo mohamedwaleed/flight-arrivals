@@ -36,7 +36,7 @@ module.exports = function (grunt) {
       },
       pages: {
         options: {
-          remote: 'git@github.com/mohamedwaleed/flight-arrivals.git',
+          remote: 'https://github.com/mohamedwaleed/flight-arrivals.git',
           branch: 'gh-pages'
         }
       }
