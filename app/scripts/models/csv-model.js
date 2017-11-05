@@ -1,6 +1,8 @@
 'use strict';
 
-function CsvModel(CsvService) {
+/* globals services */
+
+function CsvModel(CsvService, $log) {
     this.data = null;
     var thisModel = this;
     /////////////////////////// helpers
@@ -17,9 +19,9 @@ function CsvModel(CsvService) {
         var fields = line.split(',');
         var origin = fields[1].trim().substring(1, fields[1].trim().length - 1);
         var dest = fields[2].trim().substring(1, fields[2].trim().length - 1);
-        var departureTime = fields[3].trim().substring(1, 3) + ":" + fields[3].trim().substring(3, fields[3].trim().length - 1);
-        var arrivalTime = fields[4].trim().substring(1, 3) + ":" + fields[4].trim().substring(3, fields[4].trim().length - 1);
-        if(fields[5] === ""){
+        var departureTime = fields[3].trim().substring(1, 3) + ':' + fields[3].trim().substring(3, fields[3].trim().length - 1);
+        var arrivalTime = fields[4].trim().substring(1, 3) + ':' + fields[4].trim().substring(3, fields[4].trim().length - 1);
+        if(fields[5] === ''){
           fields[5] = '0.0';
         }
         var flightObject = {
@@ -52,7 +54,7 @@ function CsvModel(CsvService) {
         thisModel.data = parseCsvData(response.data);
       };
       var onFail = function() {
-        console.log("fail");
+        $log.info('fail');
       };
 
       return csvPromise.then(onSuccess, onFail);
@@ -83,9 +85,7 @@ function CsvModel(CsvService) {
 }
 
 
-angular
-  .module('flightArrivalApp')
-  .factory('CsvModel', ['CsvService',
-    function(CsvService) {
-        return new CsvModel(CsvService);
+services.factory('CsvModel', ['CsvService', '$log',
+    function(CsvService, $log) {
+        return new CsvModel(CsvService, $log);
     }]);

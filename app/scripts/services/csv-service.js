@@ -1,9 +1,8 @@
 'use strict';
 
+/* globals services */
 
-angular
-  .module('flightArrivalApp')
-  .service('CsvService', ['$http', 'BASE_URL' ,
+services.service('CsvService', ['$http', 'BASE_URL' ,
     function ($http, BASE_URL) {
 	    return  {
 	    	getFlights: function() {

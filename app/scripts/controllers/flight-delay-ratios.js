@@ -1,24 +1,20 @@
 'use strict';
 
-angular.module('flightArrivalApp')
-  .controller('FlightDelayRatiosController', ['$scope', function ($scope) {
+/* globals controllers */
+
+controllers.controller('FlightDelayRatiosController', ['$scope', 'FlightModel',function ($scope, FlightModel) {
   	
     var flights = $scope.flights;
   	if(!flights){
         return;
     }
-    $scope.fullData = flights.map(function(flight) {
-        var flightDelayRatio = Math.ceil((flight.arrivalDelay / flight.elapsedTime) * 100);
-		return flightDelayRatio;
-	});
+    var fullData = FlightModel.getFlightDelaysRatio(flights);
 
-	$scope.data = [$scope.fullData];
+	$scope.labels = FlightModel.getFlightDates(flights);
+
+    $scope.data = [fullData];
 	
-	$scope.labels = flights.map(function(flight) {
-		return flight.date;
-	});
-
-	$scope.options= {
+    $scope.options= {
         title: {
             display: true,
             text: 'Flight delay ratios',
@@ -47,12 +43,12 @@ angular.module('flightArrivalApp')
 
 	$scope.datasetOverride = [
 	      {
-	        label: "Flight delay ratio (in percentage)",
+	        label: 'Flight delay ratio (in percentage)',
 	        borderWidth: 1,
-	        borderColor: "#45b7cd",
-	        pointHighlightStroke : "#FF00AA",
-	        hoverBackgroundColor: "rgba(255,99,132,0.4)",
-	        hoverBorderColor: "rgba(255,99,132,1)",
+	        borderColor: '#45b7cd',
+	        pointHighlightStroke : '#FF00AA',
+	        hoverBackgroundColor: 'rgba(255,99,132,0.4)',
+	        hoverBorderColor: 'rgba(255,99,132,1)',
 	        type: 'bar'
 	      }
 	    ];

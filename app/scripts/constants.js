@@ -1,5 +1,5 @@
 'use strict';
 
-angular
-  .module('flightArrivalApp')
-  .constant('BASE_URL', '');
+/* globals app */
+
+app.constant('BASE_URL', '');

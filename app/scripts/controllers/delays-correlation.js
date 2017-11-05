@@ -1,33 +1,15 @@
 'use strict';
 
-angular.module('flightArrivalApp')
-  .controller('DelaysCorrelationController', ['$scope',  function ($scope) {
+/* globals controllers */
+
+controllers.controller('DelaysCorrelationController', ['$scope', 'FlightModel', function ($scope, FlightModel) {
   	var flights = $scope.flights;
     if(!flights){
         return;
     }
-    var flightDistanceMap = {};
-    flights.forEach(function(flight) {
-        if(!flightDistanceMap[flight.distance]){
-            
-            flightDistanceMap[flight.distance] = {
-                sum: 0,
-                count: 0
-            };
-        }
-        flightDistanceMap[flight.distance].sum += flight.arrivalDelay;
-        flightDistanceMap[flight.distance].count ++;
+    var fullData = FlightModel.getCorrelationPoints(flights);
 
-    });
-    $scope.fullData = [];
-    var keys = Object.keys(flightDistanceMap);
-    for(var i = 0 ; i < keys.length ; i ++ ) {
-        var distance = keys[i];
-        var avgDelayas = flightDistanceMap[distance].sum / flightDistanceMap[distance].count;
-        $scope.fullData.push({x: distance, y: avgDelayas});
-    }
-
-	$scope.data =  [$scope.fullData];
+	$scope.data =  [fullData];
 
 	$scope.options= {
         title: {
@@ -59,12 +41,12 @@ angular.module('flightArrivalApp')
 
 	$scope.datasetOverride = [
 	      {
-	        label: "X axes ( distances in miles ) Y axes ( avarage delays in miniuts)",
+	        label: 'X axes ( distances in miles ) Y axes ( avarage delays in miniuts)',
 	        borderWidth: 1,
-	        borderColor: "#45b7cd",
-	        pointHighlightStroke : "#FF00AA",
-	        hoverBackgroundColor: "rgba(255,99,132,0.4)",
-	        hoverBorderColor: "rgba(255,99,132,1)",
+	        borderColor: '#45b7cd',
+	        pointHighlightStroke : '#FF00AA',
+	        hoverBackgroundColor: 'rgba(255,99,132,0.4)',
+	        hoverBorderColor: 'rgba(255,99,132,1)',
 	        type: 'scatter'
 	      }
 	    ];

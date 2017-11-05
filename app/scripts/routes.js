@@ -1,7 +1,8 @@
 'use strict';
-angular
-.module('flightArrivalApp')
-.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
+
+/* globals app */
+
+app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('app', {
         abstract: true,

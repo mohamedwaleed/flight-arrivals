@@ -1,6 +1,7 @@
 'use strict';
 
-angular.module('flightArrivalApp')
-  .controller('MainCtrl', [function () {
+/* globals controllers */
 
-  }]);
+controllers.controller('MainCtrl', [function () {
+
+ }]);

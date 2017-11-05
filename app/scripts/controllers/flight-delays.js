@@ -1,21 +1,18 @@
 'use strict';
 
-angular.module('flightArrivalApp')
-  .controller('FlightDelaysController', ['$scope', function ($scope) {
+/* globals controllers */
+
+controllers.controller('FlightDelaysController', ['$scope', 'FlightModel', function ($scope, FlightModel) {
   	var flights = $scope.flights;
     if(!flights){
         return;
     }
-  	$scope.fullData = flights.map(function(flight) {
-		return flight.arrivalDelay;
-	});
+  	var fullData = FlightModel.getFlightDelays(flights);
 
-	$scope.data = [$scope.fullData];
-	
-	$scope.labels = flights.map(function(flight) {
-		return flight.date;
-	});
+	$scope.labels = FlightModel.getFlightDates(flights);
 
+    $scope.data = [fullData];
+    
 	$scope.options= {
         title: {
             display: true,
@@ -43,12 +40,12 @@ angular.module('flightArrivalApp')
 
 	$scope.datasetOverride = [
 	      {
-	        label: "Flight delay (in miniuts)",
+	        label: 'Flight delay (in miniuts)',
 	        borderWidth: 1,
-	        borderColor: "#45b7cd",
-	        pointHighlightStroke : "#FF00AA",
-	        hoverBackgroundColor: "rgba(255,99,132,0.4)",
-	        hoverBorderColor: "rgba(255,99,132,1)",
+	        borderColor: '#45b7cd',
+	        pointHighlightStroke : '#FF00AA',
+	        hoverBackgroundColor: 'rgba(255,99,132,0.4)',
+	        hoverBorderColor: 'rgba(255,99,132,1)',
 	        type: 'bar'
 	      }
 	    ];

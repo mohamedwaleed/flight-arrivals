@@ -1,14 +1,12 @@
 'use strict';
 
-/**
- * @ngdoc overview
- * @name flightArrivalApp
- * @description
- * # flightArrivalApp
- *
- * Main module of the application.
- */
-angular
+ /*jshint unused:false*/
+
+var services = angular.module('services', []);
+
+var controllers = angular.module('controllers', ['services']);
+
+var app = angular
   .module('flightArrivalApp', [
     'ngAnimate',
     'ngCookies',
@@ -18,5 +16,7 @@ angular
     'chart.js',
     'ui.router',
     'ngMaterial',
-    'htmlToPdfSave'
+    'htmlToPdfSave',
+    'controllers',
+    'services'
   ]);

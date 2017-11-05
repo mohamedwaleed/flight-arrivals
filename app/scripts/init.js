@@ -1,9 +1,8 @@
 'use strict';
 
+/* globals app */
 
-angular
-  .module('flightArrivalApp')
-  .run(['CsvModel', '$rootScope', '$mdToast', function(CsvModel, $rootScope, $mdToast) {
+app.run(['CsvModel', '$rootScope', '$mdToast', '$log', function(CsvModel, $rootScope, $mdToast, $log) {
   	  $rootScope.ready = false;
   	  $rootScope.showSimpleToast = function(text, delay) {
   	  	if(!delay) {
@@ -26,6 +25,6 @@ angular
       CsvModel.readCsvFile().then(function() {
       	$rootScope.ready = true;
       }, function(err) {
-      	console.log(err);
+      	$log.info(err);
       });
 }]);

@@ -1,7 +1,8 @@
 'use strict';
 
-angular.module('flightArrivalApp')
- .directive('flightDelays', function() {
+/* globals app */
+
+app.directive('flightDelays', function() {
   return {
     restrict: 'E',
     scope: {

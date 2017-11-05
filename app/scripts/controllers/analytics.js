@@ -1,7 +1,8 @@
 'use strict';
 
-angular.module('flightArrivalApp')
-  .controller('AnalyticsCtrl', ['$scope', 'CsvModel', '$stateParams', '$state', '$rootScope', '$mdToast',
+/* globals controllers */
+
+controllers.controller('AnalyticsCtrl', ['$scope', 'CsvModel', '$stateParams', '$state', '$rootScope', '$mdToast',
    function ($scope, CsvModel, $stateParams, $state, $rootScope, $mdToast) {
   	$scope.origin = $stateParams.origin;
   	$scope.dest = $stateParams.dest;
