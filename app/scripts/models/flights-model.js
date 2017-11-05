@@ -17,6 +17,14 @@ function FlightModel() {
       });
     };
 
+    this.getFlightUniqeDates = function(flightsDates) {
+      var dateMap = {};
+      for (var i = 0; i < flightsDates.length; i++){
+          dateMap[flightsDates[i]] = true;
+      }
+      return Object.keys(dateMap);
+    };
+
     this.getFlightDelaysRatio = function(flights) {
       return flights.map(function(flight) {
             var flightDelayRatio = Math.ceil((flight.arrivalDelay / flight.elapsedTime) * 100);

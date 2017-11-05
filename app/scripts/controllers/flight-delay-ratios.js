@@ -9,11 +9,33 @@ controllers.controller('FlightDelayRatiosController', ['$scope', 'FlightModel',f
         return;
     }
     var fullData = FlightModel.getFlightDelaysRatio(flights);
+    var fullLabels = FlightModel.getFlightDates(flights);
 
-	$scope.labels = FlightModel.getFlightDates(flights);
+	$scope.labels = fullLabels;
 
+    $scope.dates = FlightModel.getFlightUniqeDates($scope.labels);
+    
     $scope.data = [fullData];
 	
+    $scope.selectFlightsDelaysOnDate = function() {
+        var date = $scope.selectedDate;
+        if(date === 'all') {
+            $scope.data = [fullData];
+            $scope.labels = fullLabels;
+            return ;
+        }
+        var filteredFlights = flights.filter(function(flight) {
+            return flight.date === date;
+        });
+        var flightDelays = FlightModel.getFlightDelays(filteredFlights);
+
+        $scope.data = [flightDelays];
+        $scope.labels = [];
+        for(var i = 0 ; i < flightDelays.length ; i ++ ) {
+            $scope.labels.push(date);
+        }
+    };
+
     $scope.options= {
         title: {
             display: true,

@@ -8,7 +8,7 @@ app.directive('flightDelays', function() {
     scope: {
       flights: '=flights'
     },
-    templateUrl: 'views/chart.html',
+    templateUrl: 'views/bar-chart.html',
     controller: 'FlightDelaysController'
   };
 });
