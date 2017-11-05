@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('flightArrivalApp')
-  .controller('FlightDelayRatiosController', ['$scope', 'CsvModel', '$stateParams', '$state', '$rootScope', function ($scope, CsvModel, $stateParams, $state, $rootScope) {
+  .controller('FlightDelayRatiosController', ['$scope', function ($scope) {
   	
     var flights = $scope.flights;
   	if(!flights){
@@ -34,15 +34,15 @@ angular.module('flightArrivalApp')
                 	var departureTime = flights[tooltipItem.index].departureTime;
                 	var arrivalTime = flights[tooltipItem.index].arrivalTime;
                     var delayPercentage = data.datasets[0].data[tooltipItem.index];
-                    var displayLabel = ((delayPercentage >= 0)? delayPercentage: delayPercentage * -1) + '% ' 
-                                        + ((delayPercentage >= 0)?'delay arrival':'early arrival' ) 
-                                        + ' , Departure time: ' + departureTime +  ', Arrival time: ' + arrivalTime ;
+                    var displayLabel = ((delayPercentage >= 0)? delayPercentage: delayPercentage * -1) + '% ' +
+                                       ((delayPercentage >= 0)?'delay arrival':'early arrival' ) +
+                                       ' , Departure time: ' + departureTime +  ', Arrival time: ' + arrivalTime ;
 
                     return displayLabel;
                 }
             }
         }
-    }
+    };
 
 
 	$scope.datasetOverride = [

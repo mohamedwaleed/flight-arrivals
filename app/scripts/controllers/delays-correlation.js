@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('flightArrivalApp')
-  .controller('DelaysCorrelationController', ['$scope', 'CsvModel', '$stateParams', '$state', '$rootScope', function ($scope, CsvModel, $stateParams, $state, $rootScope) {
+  .controller('DelaysCorrelationController', ['$scope',  function ($scope) {
   	var flights = $scope.flights;
     if(!flights){
         return;
@@ -54,7 +54,7 @@ angular.module('flightArrivalApp')
               position: 'bottom'
             }]
           }
-    }
+    };
 
 
 	$scope.datasetOverride = [

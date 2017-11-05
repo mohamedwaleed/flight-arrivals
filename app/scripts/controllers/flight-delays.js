@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('flightArrivalApp')
-  .controller('FlightDelaysController', ['$scope', 'CsvModel', '$stateParams', '$state', '$rootScope', function ($scope, CsvModel, $stateParams, $state, $rootScope) {
+  .controller('FlightDelaysController', ['$scope', function ($scope) {
   	var flights = $scope.flights;
     if(!flights){
         return;
@@ -31,14 +31,14 @@ angular.module('flightArrivalApp')
                 label: function(tooltipItem, data) {
                 	var departureTime = flights[tooltipItem.index].departureTime;
                 	var arrivalTime = flights[tooltipItem.index].arrivalTime;
-                	var dsiplayedLabel = data.datasets[0].data[tooltipItem.index] 
-                						+ ' Miniuts , Departure time: ' + departureTime 
-                						+  ', Arrival time: ' + arrivalTime ;
+                	var dsiplayedLabel = data.datasets[0].data[tooltipItem.index] +
+                                         ' Miniuts , Departure time: ' + departureTime +
+                                         ', Arrival time: ' + arrivalTime ;
                     return dsiplayedLabel;
                 }
             }
         }
-    }
+    };
 
 
 	$scope.datasetOverride = [

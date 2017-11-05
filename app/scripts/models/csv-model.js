@@ -57,6 +57,7 @@ function CsvModel(CsvService) {
 
       return csvPromise.then(onSuccess, onFail);
     };
+    
     thisModel.searchFlights = function(origin, destination) {
       if(!thisModel.data[origin]){
         return [];
@@ -64,7 +65,8 @@ function CsvModel(CsvService) {
       return thisModel.data[origin].filter(function(flight) {
         return flight.dest === destination;
       });
-    }
+    };
+
     thisModel.getFlightsAsArray = function() {
       if(!thisModel.data){
         return [];
@@ -76,7 +78,7 @@ function CsvModel(CsvService) {
           flightsArray = flightsArray.concat(thisModel.data[keys[i]]);
       }
       return flightsArray;
-    }
+    };
     ////////////////////////////////////////////////////
 }
 

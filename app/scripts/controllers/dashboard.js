@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('flightArrivalApp')
-  .controller('DashboardCtrl', ['$scope', 'CsvModel', '$state', '$mdToast', 
-  	function ($scope, CsvModel, $state, $mdToast) {
+  .controller('DashboardCtrl', ['$scope', 'CsvModel', '$state', 
+  	function ($scope, CsvModel, $state) {
      $scope.origin = '';
      $scope.dest = '';
 
