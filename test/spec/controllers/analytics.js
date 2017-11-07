@@ -6,7 +6,7 @@ describe('Controller: AnalyticsCtrl', function () {
   beforeEach(module('flightArrivalApp'));
 
   var AnalyticsCtrl,
-    scope, controller , rootScope, stateParams, csvModel, CsvModelImpl;
+    scope, controller , rootScope, stateParams, CsvModelImpl;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope, $stateParams) {

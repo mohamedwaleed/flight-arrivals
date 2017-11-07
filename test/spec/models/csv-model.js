@@ -2,27 +2,20 @@
 
 describe('Service: CsvModel', function () {
 
-  // load the controller's module
   beforeEach(module('flightArrivalApp'));
 
   var scope, csvModel;
 
-  // Initialize the controller and a mock scope
   beforeEach(inject(function ($rootScope, CsvModel) {
     scope = $rootScope.$new();
     csvModel = CsvModel;
   }));
 
   it('should read and  parse csv data', function () {
-    // var data = '"FL_DATE","ORIGIN","DEST","CRS_DEP_TIME","CRS_ARR_TIME","ARR_DELAY","CRS_ELAPSED_TIME","DISTANCE",\n'+
-    //            '2017-01-01,"SFO","DFW","1146","1717",8.00,211.00,1464.00,\n'+
-    //            '2017-01-01,"SAN","DFW","1430","1927",-11.00,177.00,1171.00,\n';
-    
     var promise = csvModel.readCsvFile();
     promise.then(function() {
-      expect(CsvModel.data).not.toBeNull();
+      expect(csvModel.data).not.toBeNull();
     });
-    
   });
 
   it('should search flights', function () {
@@ -85,7 +78,7 @@ describe('Service: CsvModel', function () {
     };
     var expected = [];
     var flights = csvModel.searchFlights('LAS', 'DFW');
-    expect(flights).toEqual([]);
+    expect(flights).toEqual(expected);
   });
 
   it('should get flights as array', function () {

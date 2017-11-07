@@ -16,8 +16,6 @@ controllers.controller('AnalyticsCtrl', ['$scope', 'CsvModel', '$stateParams', '
       return avaregeRatio;
     }
 
-  	// $scope.origin = 'MIA';
-  	// $scope.dest = 'SAN';
   	if(!$rootScope.ready || !$scope.origin || !$scope.dest) {
       $mdToast.show($mdToast.simple().textContent('Input is empty').position('top right'));
   		$state.go('app.dashboard');

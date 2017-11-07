@@ -5,8 +5,7 @@ describe('Controller: FlightDelayController', function () {
   // load the controller's module
   beforeEach(module('flightArrivalApp'));
 
-  var FlightDelaysController,
-    scope, $state;
+  var FlightDelaysController, scope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
