@@ -25,4 +25,12 @@ describe('Controller: DashboardCtrl', function () {
     scope.searchFlights();
     expect($state.go).toHaveBeenCalledWith('app.analytics', {origin: scope.origin, dest: scope.dest});
   });
+
+  it('should capitalize origin and destination', function () {
+    scope.origin = 'mia';
+    scope.dest = 'san';
+    scope.searchFlights();
+    expect(scope.origin).toBe('MIA');
+    expect(scope.dest).toBe('SAN');
+  });
 });

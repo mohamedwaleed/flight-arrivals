@@ -6,6 +6,7 @@ controllers.controller('AnalyticsCtrl', ['$scope', 'CsvModel', '$stateParams', '
    function ($scope, CsvModel, $stateParams, $state, $rootScope, $mdToast) {
   	$scope.origin = $stateParams.origin;
   	$scope.dest = $stateParams.dest;
+    console.log($rootScope.ready);
     function calculateOverallDelayRatio(flights) {
       var avaregeRatio = 0.0;
       for(var i = 0 ; i < flights.length  ; i ++ ) {
