@@ -9,12 +9,24 @@ class DashboardCtrl {
    openPopup() {
     let element = this.$document[0].getElementById('modal');
     this.$log.info(element.style.display);
-    if(element.style.display === 'none') {
+    if(element.style.display === 'none' || !element.style.display) {
         element.style.display = 'block';
-        document.body.style.backgroundColor = '#666';
+        element.style.backgroundColor = 'rgba(0,0,0,0.4)';
     }else {
         element.style.display = 'none';
-        this.$document[0].body.style.backgroundColor = '#fff';
+        element.style.backgroundColor = 'rgba(0,0,0,0)';
+    }
+   }
+
+   closePopup() {
+    let element = this.$document[0].getElementById('modal');
+    this.$log.info(element.style.display);
+    if(element.style.display === 'none' || !element.style.display) {
+        element.style.display = 'block';
+        element.style.backgroundColor = 'rgba(0,0,0,0.4)';
+    }else {
+        element.style.display = 'none';
+        element.style.backgroundColor = 'rgba(0,0,0,0)';
     }
    }
 }

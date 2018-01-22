@@ -10,6 +10,7 @@ import "./index.vendor";
 import "./index.module";
 
 import "../assets/styles/main.css";
+import "../assets/styles/animate.css";
 
 angular.element(document).ready(() => {
   angular.bootstrap(document, ['flight-arrivals'], {
