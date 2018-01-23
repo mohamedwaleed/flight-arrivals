@@ -1,12 +1,20 @@
-<nav class="navbar navbar-light bg-light justify-content-between">
+<div ng-show="!$ctrl.isLoading">
+    <nav class="navbar navbar-light bg-light justify-content-between">
 
-    <div class="navbar-header">
-        <a class="navbar-brand" href="#">
-            <img class="logo" alt="logo" src="../assets/images/logo.png"/>
-        </a>
-        <label class="logo-label">
-            Flight <span>arrivals</span>
-        </label>
-    </div>
-</nav>
-<div ui-view></div>
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+                <img class="logo" alt="logo" src="../assets/images/logo.png"/>
+            </a>
+            <label class="logo-label">
+                Flight <span>arrivals</span>
+            </label>
+        </div>
+    </nav>
+    <div  ui-view></div>
+</div>
+
+<div ng-show="$ctrl.isLoading" class="loader">
+    <img class="img" src="../assets/images/loading.gif"/>
+    <h3 class="center">Intializng appliation ...</h3>
+    
+</div>

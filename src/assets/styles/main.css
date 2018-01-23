@@ -1,9 +1,11 @@
 /* defaults */
-body{
-    font-family: Montserrat,sans-serif;
+html, body{
+    font-family: 'Montserrat', sans-serif;
     background-color: transparent;
-}
-
+  }
+  h1,h2,h3{
+    font-weight: bold;
+  }
 
 /* navbar */
 .navbar {
@@ -32,6 +34,16 @@ body{
     font-weight: 400;
     color: #777;
 }
+/* main */
+
+.loader {
+  position: fixed; 
+  top: 20%;
+  left: 35%;
+  margin: auto;
+  text-align: center;
+}
+
 
 /* dashboard */
 

@@ -9,7 +9,8 @@ function routeConfig($urlRouterProvider, $stateProvider) {
             url: '/',
             abstract: true,
             templateUrl: mainHtmlTemplate,
-            controller: MainCtrl
+            controller: MainCtrl,
+            controllerAs: '$ctrl'
           });
   
     $urlRouterProvider.otherwise('/dashboard');
