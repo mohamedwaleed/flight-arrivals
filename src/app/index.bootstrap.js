@@ -11,6 +11,7 @@ import "./index.module";
 
 import "../assets/styles/main.css";
 
+import '../Flight-Delays.csv';
 
 angular.element(document).ready(() => {
   angular.bootstrap(document, ['flight-arrivals'], {
