@@ -124,7 +124,8 @@ module.exports = function (_path) {
             }
           }
         ]
-      }
+      },
+      {test: /\.csv$/, use: [ "file-loader" ]}
       ]
     },
 

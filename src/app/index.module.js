@@ -6,6 +6,7 @@ import run from './index.run';
 import uiRouter from '@uirouter/angularjs';
 import indexRoute from './index.route';
 import dashboard from './dashboard';
+import ngRedux from 'ng-redux';
 
 
 const App = angular.module(
@@ -21,7 +22,8 @@ const App = angular.module(
   "ngResource",
   indexRoute.name,
   dashboard.name,
-  'ui.bootstrap'
+  'ui.bootstrap',
+  ngRedux
   ]
 );
 

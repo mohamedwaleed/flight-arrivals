@@ -1,4 +1,5 @@
 import mainHtmlTemplate from './main.html';
+import MainCtrl from './main-ctrl';
 
 function routeConfig($urlRouterProvider, $stateProvider) {
     'ngInject';
@@ -7,7 +8,8 @@ function routeConfig($urlRouterProvider, $stateProvider) {
           .state('app', {
             url: '/',
             abstract: true,
-            templateUrl: mainHtmlTemplate
+            templateUrl: mainHtmlTemplate,
+            controller: MainCtrl
           });
   
     $urlRouterProvider.otherwise('/dashboard');

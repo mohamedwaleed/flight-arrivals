@@ -7,7 +7,7 @@
                     <div class="banner-content">
                         <h3 id="banner-label">Choose your best flight</h3>
                         <div>
-                            <button ng-click="$ctrl.openPopup()" class="btn btn-success getting-started">Getting started</button>
+                            <button ng-click="$ctrl.gettingStarted()" class="btn btn-success getting-started">Getting started</button>
                         </div>
                     </div>
                     
@@ -17,12 +17,4 @@
     </div>
 </div>
 
-<div id="modal" class="modal ">
-    <div class="modal-content animated jello">
-        <h1>Search Flights</h1>
-        <hr/>
-        <p></p>
-        <button ng-click="$ctrl.closePopup()" class="btn btn-success">Close</button>
-    </div>
-    
-</div>
+<popup></popup>
