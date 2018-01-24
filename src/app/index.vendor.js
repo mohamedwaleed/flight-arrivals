@@ -31,7 +31,5 @@ import 'angular-ui-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-
-
 // local scripts
 //import "../assets/js/...";
