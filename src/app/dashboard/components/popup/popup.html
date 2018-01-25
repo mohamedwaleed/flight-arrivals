@@ -3,13 +3,34 @@
         <h1 class="modal-header">Search Flights</h1>
         <form class="modal-form">
             <div class="form-group">
-              <label for="exampleInputEmail1">Source:</label>
-              <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Enter source state">
+              <label >Origin:</label>
+              <!-- <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Enter source state"> -->
+              <angucomplete-alt id="origin"
+              placeholder="Enter origin state"
+              pause="300"
+              selected-object="$ctrl.selectedOrigin"
+              local-data="$ctrl.flights"
+              local-search="$ctrl.searchFlights"
+              description-field="Origin"
+              minlength="1"
+              input-class="form-control"
+              match-class="highlight"
+              title-field="name" />
               <small  class="form-text text-muted">All available states in USA only</small>
             </div>
             <div class="form-group">
-                <label for="exampleInputEmail1">Destination:</label>
-                <input type="text" class="form-control" placeholder="Enter destination state">
+                <label >Destination:</label>
+                <angucomplete-alt id="origin"
+                placeholder="Enter destination state"
+                pause="300"
+                selected-object="$ctrl.selectedDestination"
+                local-data="$ctrl.flights"
+                local-search="$ctrl.searchFlights"
+                description-field="Destination"
+                minlength="1"
+                input-class="form-control"
+                match-class="highlight"
+                title-field="name" />
                 <small  class="form-text text-muted">All available states in USA only</small>
               </div>
             <button type="submit" class="btn btn-success">Submit</button>

@@ -26,10 +26,12 @@ import "angular-resource";
 
 import 'bootstrap';
 
+import 'angucomplete-alt';
+
 import 'angular-ui-bootstrap';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-
+import 'angucomplete-alt/angucomplete-alt.css';
 // local scripts
 //import "../assets/js/...";

@@ -23,7 +23,8 @@ const App = angular.module(
   indexRoute.name,
   dashboard.name,
   'ui.bootstrap',
-  ngRedux
+  ngRedux,
+  'angucomplete-alt'
   ]
 );
 
