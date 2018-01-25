@@ -6,6 +6,7 @@ import run from './index.run';
 import uiRouter from '@uirouter/angularjs';
 import indexRoute from './index.route';
 import dashboard from './dashboard';
+import flightDetails from './flight-details';
 import ngRedux from 'ng-redux';
 
 
@@ -22,6 +23,7 @@ const App = angular.module(
   "ngResource",
   indexRoute.name,
   dashboard.name,
+  flightDetails.name,
   'ui.bootstrap',
   ngRedux,
   'angucomplete-alt'
