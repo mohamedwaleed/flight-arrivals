@@ -1,26 +1,26 @@
 /* modal */
 
 .modal {
-    position: fixed;
+    position: absolute;
     top: 0;
     bottom: 0;
     right: 0;
     left: 0;
     margin: auto;
     width: 100%;
-    height: 100vh;
+    height: 200%;
     color: #000;
     z-index: 10;
 }
 
-.modal-content {
-    width: 500px;
-    height: 62vh;
+.popup-content {
+    width: 40%;
+    height: 500px;
     border-radius: 5px;
     border: none;
     padding: 5px;
     background-color: white;
-    position: fixed;
+    position: absolute;
     top: 0;
     bottom: 0;
     right: 0;
@@ -28,6 +28,8 @@
     margin: auto;
     display: block;
 }
+
+
 
 .modal-header{
     text-align: center;
@@ -48,4 +50,29 @@
 .angucomplete-dropdown {
     overflow-y: auto;
     max-height: 200px; 
+}
+
+.modal-form input.ng-invalid.ng-touched {
+    border-color: #FA787E !important;
+  }
+
+.modal-form input.ng-valid.ng-touched {
+    border-color: #78FA89 !important;
+}
+
+
+.error {
+    border-color: #FA787E !important;
+}
+
+.field-error{
+    color: rgb(133, 13, 17) !important;
+}
+
+
+
+@media screen and (max-width: 680px) {
+    h1{
+        font-size: 20px;
+    }
 }

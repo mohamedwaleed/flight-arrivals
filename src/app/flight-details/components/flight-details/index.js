@@ -1,9 +1,12 @@
 import flightDetailsTemplate from './flight-details.html';
 import flightDetailsCtrl from './flight-details-ctrl';
+import uiRouter from '@uirouter/angularjs';
+import './flight-details.css';
 
-let flightDetailsComponentModule = angular.module('flight-details.component', []);
+let flightDetailsComponentModule = angular.module('flight-details.component',
+ [uiRouter]);
 
-flightDetailsComponentModule.component('flight-details', {
+flightDetailsComponentModule.component('flightdetails', {
     templateUrl: flightDetailsTemplate,
     controller: flightDetailsCtrl
 });
