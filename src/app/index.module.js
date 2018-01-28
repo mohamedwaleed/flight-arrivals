@@ -26,7 +26,8 @@ const App = angular.module(
   flightDetails.name,
   'ui.bootstrap',
   ngRedux,
-  'angucomplete-alt'
+  'angucomplete-alt',
+  'nvd3'
   ]
 );
 

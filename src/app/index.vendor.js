@@ -28,6 +28,9 @@ import 'bootstrap';
 
 import 'angucomplete-alt';
 
+import 'angular-nvd3';
+import 'nvd3/build/nv.d3.css';
+
 import 'angular-ui-bootstrap';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
