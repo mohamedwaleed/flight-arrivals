@@ -11,7 +11,6 @@ export default class MainCtrl {
     }
 
     mapStateToThis(state) {
-        this.$log.info(state.flights);
         return {
             flights: state.flights,
             isLoading: (state.flights === null)

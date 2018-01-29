@@ -1,7 +1,7 @@
 class CsvService {
 
     constructor() {
-
+      'ngInject';
     }
 
     parseCsvData(data) {
@@ -41,4 +41,4 @@ class CsvService {
 
 }
 
-export default new CsvService;
+export default CsvService;

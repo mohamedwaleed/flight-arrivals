@@ -1,7 +1,7 @@
 import d3 from 'd3/d3';
 
 class FlightDetailsCtrl {
-    constructor($log, $stateParams) {
+    constructor($log, $stateParams, flightService) {
      'ngInject';
      if(!$stateParams.origin || !$stateParams.destination) {
         // $state.go('app.dashboard');
@@ -10,7 +10,7 @@ class FlightDetailsCtrl {
      this.$log = $log;
      this.origin = $stateParams.origin;
      this.dest = $stateParams.destination;
-
+     this.flightService = flightService;
      this.options = {
         chart: {
             type: 'historicalBarChart',

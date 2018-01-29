@@ -2,6 +2,9 @@
 
 class FlightsService {
     
+    constructor(){
+        'ngInject';
+    }
     getFlightsAsArray(flightsMap) {
         if(!flightsMap){
           return [];
@@ -84,4 +87,4 @@ class FlightsService {
     }
 }
 
-export default new FlightsService;
+export default FlightsService;
