@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {FETCH_FLIGHTS} from './types';
+import {FETCH_FLIGHTS, SELECT_FLIGHT} from './types';
 
 export function fetchFlights() {
     let request = axios.get('/Flight-Delays.csv');
@@ -7,4 +7,14 @@ export function fetchFlights() {
         type: FETCH_FLIGHTS,
         payload: request
     };
+}
+
+export function selectFlight(origin, dest) {
+    return {
+        type: SELECT_FLIGHT,
+        payload: {
+            origin: origin,
+            dest: dest
+        }
+    }
 }

@@ -1,7 +1,6 @@
-import flightsService from '../../../flight/services/flights-service';
 
 export default class PopupController { 
-    constructor($document, popupService, $log, $ngRedux, $state) {
+    constructor($document, popupService, $log, $ngRedux, $state, flightService) {
         'ngInject';
         this.$document = $document;
         this.popupService = popupService;
@@ -10,6 +9,8 @@ export default class PopupController {
         this.selectedDestination = "";
         this.searchFlights = this.searchFlights.bind(this);
         this.$state = $state;
+        this.flightService = flightService;
+        this.mapStateToThis = this.mapStateToThis.bind(this);
         $ngRedux.connect(this.mapStateToThis)(this);
     }
 
@@ -35,7 +36,7 @@ export default class PopupController {
 
     mapStateToThis(state) {
         return {
-            flights: flightsService.getFlightsStates(state.flights)
+            flights: this.flightService.getFlightsStates(state.flights)
         };
     }
 }

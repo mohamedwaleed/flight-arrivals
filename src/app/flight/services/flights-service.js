@@ -2,6 +2,21 @@
 
 class FlightsService {
     
+    constructor(){
+        'ngInject';
+    }
+
+    searchFlights(flightsMap, selectedFlight) {
+        let origin = selectedFlight.origin;
+        let dest = selectedFlight.dest;
+        let originFlights = flightsMap[origin];
+        if(!originFlights) {
+            return [];
+        }
+        
+        return originFlights.filter(flight => flight.dest === dest);
+    }
+
     getFlightsAsArray(flightsMap) {
         if(!flightsMap){
           return [];
@@ -78,10 +93,10 @@ class FlightsService {
       for(let i = 0 ; i < keys.length ; i ++ ) {
           let distance = keys[i];
           let avgDelayas = flightDistanceMap[distance].sum / flightDistanceMap[distance].count;
-          correlationPoints.push({x: distance, y: avgDelayas});
+          correlationPoints.push([parseFloat(distance), avgDelayas]);
       }
       return correlationPoints;
     }
 }
 
-export default new FlightsService;
+export default FlightsService;
