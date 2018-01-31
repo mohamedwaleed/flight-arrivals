@@ -33,6 +33,9 @@ import 'nvd3/build/nv.d3.css';
 
 import 'angular-ui-bootstrap';
 
+// import html2canvas from 'html2canvas/dist/html2canvas';
+import 'angular-save-html-to-pdf/dist/saveHtmlToPdf';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import 'angucomplete-alt/angucomplete-alt.css';
