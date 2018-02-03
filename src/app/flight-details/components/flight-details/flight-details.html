@@ -4,7 +4,26 @@
            <h1 class="center">Flights from {{$ctrl.origin}} to {{$ctrl.dest}}</h1>
         </div>
     </div>
+
     <div class="row">
+
+      <div class="col">
+        <div class="pdf-download-area">
+          <button pdf-save-button="flightDetails" pdf-name="someone.pdf" type="button" class="btn btn-default btn-lg">
+            <!-- <svg class="pdf-image" width="100" height="125" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" >
+              <path fill="none" id="canvas_background" d="M-1-1h582v402H-1z"/>
+              <g><path id="svg_1" d="M102.923 79.365a1.09 1.09 0 0 0-.991-.635H84.876V64.667c0-5.43-4.401-8.031-9.827-8.031-5.432 0-9.833 2.602-9.833 8.031V78.73H48.164c-.423 0-.812.248-.992.635-.179.387-.118.84.159 1.164l26.881 31.77c.21.242.515.389.837.389.317 0 .627-.146.831-.389l26.884-31.77a1.09 1.09 0 0 0 .159-1.164z"/>
+                <path id="svg_2" d="M15.86 102.152V20.8h37.852v16.813c0 .227.095.446.253.602a.847.847 0 0 0 .598.251h16.582v14.679a17.59 17.59 0 0 1 3.93-.423c1.298 0 2.546.124 3.717.374v-16.51a3.796 3.796 0 0 0-1.126-2.707L58.021 14.271a3.847 3.847 0 0 0-2.701-1.115H12.036a3.834 3.834 0 0 0-2.702 1.118 3.855 3.855 0 0 0-1.122 2.703v89.001c0 1.002.41 1.989 1.122 2.701a3.844 3.844 0 0 0 2.702 1.119H65.89l-6.469-7.646H15.86z"/>
+              </g>
+            </svg> -->
+            Download as pdf
+          </button>
+        </div>
+      </div>
+  </div>
+
+  <div pdf-save-content="flightDetails">
+      <div class="row">
         <div class="col-sm-6">
           <nvd3 options="$ctrl.correlationGraphOptions" data="$ctrl.correlationGraphData"></nvd3>
         </div>
@@ -44,13 +63,14 @@
                     </tbody>
                   </table>
             </div>
-        </div>
-    </div>
-
-    <div class="row">
-      <div class="col-sm-12">
-        <nvd3 options="$ctrl.options" data="$ctrl.data"></nvd3>
       </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <nvd3 options="$ctrl.options" data="$ctrl.data"></nvd3>
+        </div>
+      </div>
+
     </div>
 </div>
 

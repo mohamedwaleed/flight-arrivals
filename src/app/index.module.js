@@ -27,7 +27,8 @@ const App = angular.module(
   'ui.bootstrap',
   ngRedux,
   'angucomplete-alt',
-  'nvd3'
+  'nvd3',
+  'htmlToPdfSave'
   ]
 );
 
