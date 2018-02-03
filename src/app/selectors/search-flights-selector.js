@@ -12,6 +12,13 @@ const flightSelector = createSelector(
     (flightsMap, selectedFlight) => flightService.searchFlights(flightsMap, selectedFlight)
 );
 
+const recommendFlightsSelector = createSelector(
+    flightSelector,
+    flights => {
+      return flightService.recommendFlights(flights);
+    }
+);
+
 const getCorrelationPointsSelector = createSelector(
     flightMapSelector,
     flightsMap => {
@@ -22,6 +29,7 @@ const getCorrelationPointsSelector = createSelector(
 
 export {
     flightSelector as selectFlight,
-    getCorrelationPointsSelector as getCorrelationPoints
+    getCorrelationPointsSelector as getCorrelationPoints,
+    recommendFlightsSelector as recommendFlights
 };
 

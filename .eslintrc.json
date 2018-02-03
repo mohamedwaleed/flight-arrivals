@@ -9,7 +9,8 @@
         "no-shadow": "warn",
         "arrow-body-style": ["warn", "as-needed"],
         "arrow-parens": ["warn", "as-needed"],
-        "no-var": "error"
+        "no-var": "error",
+        "no-console":"off"
     },
     "globals": {
         "angular": false

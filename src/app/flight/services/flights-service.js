@@ -93,9 +93,50 @@ class FlightsService {
       for(let i = 0 ; i < keys.length ; i ++ ) {
           let distance = keys[i];
           let avgDelayas = flightDistanceMap[distance].sum / flightDistanceMap[distance].count;
-          correlationPoints.push([parseFloat(distance), avgDelayas]);
+          correlationPoints.push({x: parseFloat(distance), y: avgDelayas});
       }
       return correlationPoints;
+    }
+    
+    recommendFlights(__flights__) {
+        // recommendation based on minumum delays
+        let myFlights = [...__flights__];
+        /* eslint-disable no-console */
+console.log(myFlights);
+/* eslint-enable no-console */
+        let getMinumum = (flights, len) => {
+            let mini = {};
+            let minIdx = -1;
+            for(let i = 0 ; i < len; i ++) {
+                if(mini.arrivalDelay) {
+                    if(mini.arrivalDelay > flights[i].arrivalDelay) {
+                        mini = flights[i];
+                        minIdx = i;
+                    }
+                }else {
+                    mini = flights[i];
+                    minIdx = i;
+                }
+            }
+            return {index: minIdx, value: mini};
+        };
+        let swap = (flights, i, j) => {
+            let tmpFlight = flights[i];
+            flights[i] = flights[j];
+            flights[j] = tmpFlight;
+        }
+
+        let minimum = getMinumum(myFlights, myFlights.length);
+        swap(myFlights, minimum.index, myFlights.length - 1);
+
+        minimum = getMinumum(myFlights, myFlights.length - 1);
+        swap(myFlights, minimum.index, myFlights.length - 2);
+
+        minimum = getMinumum(myFlights, myFlights.length - 2);
+        swap(myFlights, minimum.index, myFlights.length - 3);
+
+                
+        return [myFlights[myFlights - 1], myFlights[myFlights - 2], myFlights[myFlights - 3]];
     }
 }
 

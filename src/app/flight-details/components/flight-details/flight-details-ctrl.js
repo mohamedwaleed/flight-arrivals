@@ -2,7 +2,8 @@ import d3 from 'd3/d3';
 import * as actions from '../../../actions';
 import {
     selectFlight,
-    getCorrelationPoints
+    getCorrelationPoints,
+    recommendFlights
 } from '../../../selectors/search-flights-selector';
 
 class FlightDetailsCtrl {
@@ -77,11 +78,10 @@ class FlightDetailsCtrl {
         this.selectFlight(this.origin, this.dest);
     }
 
-
-    $doCheck() {
-
+    configureCorrelationGraph() {
+        this.$log.info(this.recommendedFlights);
         if (this.correlationPoints && !this.correlationPointsAvalibile) {
-            this.options1 = {
+            this.correlationGraphOptions = {
                 chart: {
                     type: 'lineChart',
                     height: 450,
@@ -91,8 +91,8 @@ class FlightDetailsCtrl {
                         bottom: 65,
                         left: 50
                     },
-                    x: function (d) { return d[0]; },
-                    y: function (d) { return d[1]; },
+                    x: function (d) { return d.x; },
+                    y: function (d) { return d.y; },
                     useInteractiveGuideline: true,
                     showValues: false,
                     duration: 100,
@@ -116,7 +116,7 @@ class FlightDetailsCtrl {
                     text: "Correlation between delays and distances"
                 }
             };
-            this.data1 = [
+            this.correlationGraphData = [
                 {
                     key: "Avarage delays in minutes",
                     values: this.correlationPoints
@@ -126,10 +126,17 @@ class FlightDetailsCtrl {
         }
     }
 
+    $doCheck() {
+
+       this.configureCorrelationGraph();
+
+    }
+
     mapStateToThis(state) {
         return {
             selectedFlight: selectFlight(state),
-            correlationPoints: getCorrelationPoints(state)
+            correlationPoints: getCorrelationPoints(state),
+            recommendedFlights: recommendFlights(state)
         }
     }
 }
