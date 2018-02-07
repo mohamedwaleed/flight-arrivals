@@ -102,7 +102,6 @@ class FlightsService {
         // recommendation based on minumum delays
         let myFlights = [...__flights__];
         /* eslint-disable no-console */
-console.log(myFlights);
 /* eslint-enable no-console */
         let getMinumum = (flights, len) => {
             let mini = {};
@@ -126,6 +125,7 @@ console.log(myFlights);
             flights[j] = tmpFlight;
         }
 
+        
         let minimum = getMinumum(myFlights, myFlights.length);
         swap(myFlights, minimum.index, myFlights.length - 1);
 
@@ -135,8 +135,8 @@ console.log(myFlights);
         minimum = getMinumum(myFlights, myFlights.length - 2);
         swap(myFlights, minimum.index, myFlights.length - 3);
 
-                
-        return [myFlights[myFlights - 1], myFlights[myFlights - 2], myFlights[myFlights - 3]];
+        
+        return [myFlights[myFlights.length - 1], myFlights[myFlights.length - 2], myFlights[myFlights.length - 3]];
     }
 }
 

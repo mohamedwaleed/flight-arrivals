@@ -15,6 +15,8 @@ const flightSelector = createSelector(
 const recommendFlightsSelector = createSelector(
     flightSelector,
     flights => {
+        console.log(flights);
+        
       return flightService.recommendFlights(flights);
     }
 );
