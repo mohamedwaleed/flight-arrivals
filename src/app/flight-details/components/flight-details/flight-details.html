@@ -9,7 +9,7 @@
 
       <div class="col">
         <div class="pdf-download-area">
-          <button pdf-save-button="flightDetails" pdf-name="someone.pdf" type="button" class="btn btn-default btn-lg">
+          <button pdf-save-button="flightDetails" pdf-name="Flights_from_{{$ctrl.origin}}_to_{{$ctrl.dest}}.pdf" type="button" class="btn btn-default btn-lg">
             <!-- <svg class="pdf-image" width="100" height="125" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" >
               <path fill="none" id="canvas_background" d="M-1-1h582v402H-1z"/>
               <g><path id="svg_1" d="M102.923 79.365a1.09 1.09 0 0 0-.991-.635H84.876V64.667c0-5.43-4.401-8.031-9.827-8.031-5.432 0-9.833 2.602-9.833 8.031V78.73H48.164c-.423 0-.812.248-.992.635-.179.387-.118.84.159 1.164l26.881 31.77c.21.242.515.389.837.389.317 0 .627-.146.831-.389l26.884-31.77a1.09 1.09 0 0 0 .159-1.164z"/>
@@ -22,6 +22,11 @@
       </div>
   </div>
 
+  <div class="row">
+    <div class="col">
+      <h3 class="center fa_delay_ration">Overall delay ratio : {{$ctrl.overallDelayRatio}} miniuts</h3>
+    </div>
+  </div>
   <div pdf-save-content="flightDetails">
       <div class="row">
         <div class="col-sm-6">
@@ -40,23 +45,23 @@
                       </tr>
                     </thead>
                     <tbody>      
-                      <tr class="table-primary">
-                        <td>Primary</td>
-                        <td>Joe</td>
-                        <td>joe@example.com</td>
-                        <td>joe@example.com</td>
+                      <tr ng-if="$ctrl.recommendedFlights[0]" class="table-primary">
+                        <td>{{$ctrl.recommendedFlights[0].date}}</td>
+                        <td>{{$ctrl.recommendedFlights[0].arrivalDelay}} </td>
+                        <td>{{$ctrl.recommendedFlights[0].departureTime}}</td>
+                        <td>{{$ctrl.recommendedFlights[0].arrivalTime}}</td>
                       </tr>
-                      <tr class="table-info">
-                        <td>Info</td>
-                        <td>Dooley</td>
-                        <td>july@example.com</td>
-                        <td>july@example.com</td>
+                      <tr ng-if="$ctrl.recommendedFlights[1]" class="table-info">
+                        <td>{{$ctrl.recommendedFlights[1].date}}</td>
+                        <td>{{$ctrl.recommendedFlights[1].arrivalDelay}} </td>
+                        <td>{{$ctrl.recommendedFlights[1].departureTime}}</td>
+                        <td>{{$ctrl.recommendedFlights[1].arrivalTime}}</td>
                       </tr>
-                      <tr class="table-success">
-                        <td>Success</td>
-                        <td>Doe</td>
-                        <td>john@example.com</td>
-                        <td>july@example.com</td>
+                      <tr ng-if="$ctrl.recommendedFlights[2]" class="table-success">
+                        <td>{{$ctrl.recommendedFlights[2].date}}</td>
+                        <td>{{$ctrl.recommendedFlights[2].arrivalDelay}} </td>
+                        <td>{{$ctrl.recommendedFlights[2].departureTime}}</td>
+                        <td>{{$ctrl.recommendedFlights[2].arrivalTime}}</td>
                       </tr>
                       
                       

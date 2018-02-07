@@ -14,12 +14,19 @@ const flightSelector = createSelector(
 
 const recommendFlightsSelector = createSelector(
     flightSelector,
-    flights => {
-        console.log(flights);
-        
-      return flightService.recommendFlights(flights);
-    }
+    flights => flightService.recommendFlights(flights)
 );
+
+const getFlightDelaysRatioSelector = createSelector(
+    flightSelector,
+    flights => flightService.getFlightDelaysRatio(flights)
+);
+
+const getOverallDelaysRatioSelector = createSelector(
+    flightSelector,
+    flights => flightService.getOverallDelayRatio(flights)
+);
+
 
 const getCorrelationPointsSelector = createSelector(
     flightMapSelector,
@@ -32,6 +39,8 @@ const getCorrelationPointsSelector = createSelector(
 export {
     flightSelector as selectFlight,
     getCorrelationPointsSelector as getCorrelationPoints,
-    recommendFlightsSelector as recommendFlights
+    recommendFlightsSelector as recommendFlights,
+    getFlightDelaysRatioSelector as getFlightDelaysRatio,
+    getOverallDelaysRatioSelector as getOverallDelaysRatio
 };
 

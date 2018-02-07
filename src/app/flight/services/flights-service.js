@@ -74,6 +74,15 @@ class FlightsService {
       });
     }
 
+    getOverallDelayRatio(flights) {  
+        let avg = 0.0;
+        for(let i = 0 ; i < flights.length; i ++ ) {
+            let flightDelayRatio = (flights[i].arrivalDelay / flights[i].elapsedTime) * 100;
+            avg += flightDelayRatio / flights.length;
+        }
+        return avg.toFixed(2);
+      }
+
     getCorrelationPoints(flights) {
       let flightDistanceMap = {};
       flights.forEach(function(flight) {
@@ -124,7 +133,6 @@ class FlightsService {
             flights[i] = flights[j];
             flights[j] = tmpFlight;
         }
-
         
         let minimum = getMinumum(myFlights, myFlights.length);
         swap(myFlights, minimum.index, myFlights.length - 1);

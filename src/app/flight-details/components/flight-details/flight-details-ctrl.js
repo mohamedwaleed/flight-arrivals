@@ -3,7 +3,8 @@ import * as actions from '../../../actions';
 import {
     selectFlight,
     getCorrelationPoints,
-    recommendFlights
+    recommendFlights,
+    getOverallDelaysRatio
 } from '../../../selectors/search-flights-selector';
 
 class FlightDetailsCtrl {
@@ -129,14 +130,15 @@ class FlightDetailsCtrl {
     $doCheck() {
 
        this.configureCorrelationGraph();
-
+       
     }
 
     mapStateToThis(state) {
         return {
             selectedFlight: selectFlight(state),
             correlationPoints: getCorrelationPoints(state),
-            recommendedFlights: recommendFlights(state)
+            recommendedFlights: recommendFlights(state),
+            overallDelayRatio: getOverallDelaysRatio(state)
         }
     }
 }
