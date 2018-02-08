@@ -17,9 +17,9 @@ const recommendFlightsSelector = createSelector(
     flights => flightService.recommendFlights(flights)
 );
 
-const getFlightDelaysRatioSelector = createSelector(
+const getFlightDelaysSelector = createSelector(
     flightSelector,
-    flights => flightService.getFlightDelaysRatio(flights)
+    flights => flightService.getFlightsDatesAndDelays(flights)
 );
 
 const getOverallDelaysRatioSelector = createSelector(
@@ -40,7 +40,7 @@ export {
     flightSelector as selectFlight,
     getCorrelationPointsSelector as getCorrelationPoints,
     recommendFlightsSelector as recommendFlights,
-    getFlightDelaysRatioSelector as getFlightDelaysRatio,
+    getFlightDelaysSelector as getFlightDelays,
     getOverallDelaysRatioSelector as getOverallDelaysRatio
 };
 

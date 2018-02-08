@@ -69,13 +69,39 @@
                   </table>
             </div>
       </div>
+      
+      
 
-      <div class="row">
-        <div class="col-sm-12">
-          <nvd3 options="$ctrl.options" data="$ctrl.data"></nvd3>
+    </div>
+    <hr />
+    <div class="row box">
+      <div class="col-sm-6 ">
+        <div class="form-group filter-control-area">
+                <label style="width: 200px;" class="center font-weight-bold">Filter on specific day:</label> 
+                <input placeholder="Select date" type="datetime" class="form-control delayFilter" date-time format="yyyy-MM-dd" ng-model="start">
         </div>
+         
       </div>
 
+      <div class="col-sm-6 type-control-area center">
+
+          <div class="">
+              <div class="form-group" style="margin-bottom:10px;">
+                  <label class="font-weight-bold">Select data type:</label>
+                </div>
+                <div class="form-group">
+                    <label class="radio-inline"><input type="radio" name="optradio" checked>Delay minutes</label>
+                    <label class="radio-inline"><input type="radio" name="optradio">Delay ratio</label>
+                </div>
+          </div>
+        
+
+        </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <nvd3 options="$ctrl.flightDelayOptions" data="$ctrl.flightDelayData"></nvd3>
+      </div>
     </div>
 </div>
 

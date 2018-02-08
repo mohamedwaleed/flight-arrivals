@@ -28,7 +28,8 @@ const App = angular.module(
   ngRedux,
   'angucomplete-alt',
   'nvd3',
-  'htmlToPdfSave'
+  'htmlToPdfSave',
+  'datePicker'
   ]
 );
 

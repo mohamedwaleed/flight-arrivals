@@ -58,6 +58,11 @@ class FlightsService {
         return flight.date;
       });
     }
+    getFlightsDatesAndDelays(flights) {
+        return flights.map(function(flight) {
+            return {date: Date.parse(flight.date), delay: flight.arrivalDelay};
+          });
+    }
 
     getFlightUniqeDates(flightsDates) {
       let dateMap = {};

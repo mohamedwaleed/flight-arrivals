@@ -36,6 +36,9 @@ import 'angular-ui-bootstrap';
 // import html2canvas from 'html2canvas/dist/html2canvas';
 import 'angular-save-html-to-pdf/dist/saveHtmlToPdf';
 
+import 'angular-datepicker';
+import 'angular-datepicker/dist/index.css';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import 'angucomplete-alt/angucomplete-alt.css';
