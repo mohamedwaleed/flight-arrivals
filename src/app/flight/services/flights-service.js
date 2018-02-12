@@ -60,7 +60,13 @@ class FlightsService {
     }
     getFlightsDatesAndDelays(flights) {
         return flights.map(function(flight) {
-            return {date: Date.parse(flight.date), delay: flight.arrivalDelay};
+            return {
+                date: Date.parse(flight.date),
+                delay: flight.arrivalDelay,
+                departureTime: flight.departureTime,
+                arrivalTime: flight.arrivalTime,
+                elapsedTime: flight.elapsedTime
+            };
           });
     }
 

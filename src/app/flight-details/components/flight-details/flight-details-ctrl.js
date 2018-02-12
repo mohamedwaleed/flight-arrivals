@@ -1,5 +1,6 @@
 import d3 from 'd3/d3';
 import * as actions from '../../../actions';
+import * as moment from 'moment';
 import {
     selectFlight,
     getCorrelationPoints,
@@ -22,13 +23,13 @@ class FlightDetailsCtrl {
         this.origin = $stateParams.origin;
         this.dest = $stateParams.destination;
         this.flightService = flightService;
-        
 
         let unsubscribe = $ngRedux.connect(this.mapStateToThis, actions)(this);
         $scope.$on('$destroy', unsubscribe);
 
         this.correlationPointsAvalibile = false;
         this.flightDelaysAvalible = false;
+        this.dataType = 'minute';
     }
 
     $onInit() {
@@ -41,11 +42,11 @@ class FlightDetailsCtrl {
             this.flightDelayOptions = {
                 chart: {
                     type: 'discreteBarChart',
-                    height: 400,
+                    height: 450,
                     margin: {
                         top: 20,
                         right: 20,
-                        bottom: 65,
+                        bottom: 100,
                         left: 50
                     },
                     x: function (d) { return d.date; },
@@ -68,16 +69,7 @@ class FlightDetailsCtrl {
                         keyFormatter: function (d) {
                             return d3.time.format('%x')(new Date(d));
                         }
-                    },
-                    // zoom: {
-                    //     enabled: true,
-                    //     scaleExtent: [1, 10],
-                    //     useFixedDomain: false,
-                    //     useNiceScale: false,
-                    //     horizontalOff: false,
-                    //     verticalOff: true,
-                    //     unzoomEventType: 'dblclick.zoom'
-                    // }
+                    }
                 },
                 title: {
                     enable: true,
@@ -96,7 +88,6 @@ class FlightDetailsCtrl {
     }
 
     configureCorrelationGraph() {
-        this.$log.info(this.recommendedFlights);
         if (this.correlationPoints && !this.correlationPointsAvalibile) {
             this.correlationGraphOptions = {
                 chart: {
@@ -143,11 +134,83 @@ class FlightDetailsCtrl {
         }
     }
 
-    $doCheck() {
+    updateFlightDelayChart(options) {
+        let {title, xAxisLabel, yAxisLabel, x, y, data, xTickFormat, yTickFormat} = options;
+        this.flightDelayOptions = {
+            chart: {
+                type: 'discreteBarChart',
+                height: 450,
+                margin: {
+                    top: 20,
+                    right: 20,
+                    bottom: 100,
+                    left: 50
+                },
+                x: x,
+                y: y,
+                showValues: false,
+                duration: 100,
+                xAxis: {
+                    axisLabel: xAxisLabel,
+                    rotateLabels: 30,
+                    showMaxMin: false,
+                    tickFormat: xTickFormat
+                },
+                yAxis: {
+                    axisLabel: yAxisLabel,
+                    axisLabelDistance: -10,
+                    tickFormat: yTickFormat
+                }
+            },
+            title: {
+                enable: true,
+                text: title
+            }
+        };
 
+        this.flightDelayData = [
+            {
+                "key": "Quantity",
+                "values": data
+            }];
+    }
+
+    $doCheck() {        
        this.configureCorrelationGraph();
        this.configureFlightDelaysGraph();
     }
+
+    changeDate() {
+        if(this.date) {
+            let selectedDate = moment(this.date).format('MM-DD-YYYY');    
+            let selectedFlightDelays = this.flightDelays.filter(flight => moment(flight.date).format('MM-DD-YYYY') === selectedDate);
+            if(this.dataType === 'ratio') {
+                this.updateFlightDelayChart({
+                    data: selectedFlightDelays,
+                    title: 'Flight delays',
+                    xAxisLabel: 'Flight time',
+                    yAxisLabel: 'Flight delays ratio',
+                    xTickFormat: d => d,
+                    yTickFormat: d => d3.format('.0f')(d) + '%',
+                    x: d => `${d.departureTime} - ${d.arrivalTime}`,
+                    y: d => (d.delay / d.elapsedTime) * 100
+                });      
+            } else {
+                this.updateFlightDelayChart({
+                    data: selectedFlightDelays,
+                    title: 'Flight delays',
+                    xAxisLabel: 'Flight time',
+                    yAxisLabel: 'Flight delay in minutes',
+                    xTickFormat: d => d,
+                    yTickFormat: d => d,
+                    x: d => `${d.departureTime} -> ${d.arrivalTime}`,
+                    y: d => d.delay
+                });      
+            }
+                  
+        }
+    }
+
 
     mapStateToThis(state) {
         return {
