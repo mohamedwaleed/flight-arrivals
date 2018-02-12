@@ -7,7 +7,7 @@ module.exports = function(_path) {
     context: _path,
     devtool: 'source-map',
     output: {
-      publicPath: '/flight-arrivals',
+      publicPath: '/flight-arrivals/',
       filename: '[name].[chunkhash].js'
     },
     
