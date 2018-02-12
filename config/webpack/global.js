@@ -119,8 +119,7 @@ module.exports = function (_path) {
           {
             loader: 'url-loader',
             options: {
-              name: (DEVELOPMENT)?'assets/images/[name]_[hash].[ext]':
-              'flight-arrivals/assets/images/[name]_[hash].[ext]',
+              name: 'assets/images/[name]_[hash].[ext]',
               limit: 10000
             }
           }
@@ -131,7 +130,7 @@ module.exports = function (_path) {
         {
           loader: "file-loader",
           options: {
-            name: (DEVELOPMENT)?'[name].[ext]': 'flight-arrivals/[name].[ext]'
+            name: '[name].[ext]'
           }
         }]
       }
