@@ -119,17 +119,19 @@ module.exports = function (_path) {
           {
             loader: 'url-loader',
             options: {
-              name: 'assets/images/[name]_[hash].[ext]',
+              name: (DEVELOPMENT)?'assets/images/[name]_[hash].[ext]':
+              'flight-arrivals/assets/images/[name]_[hash].[ext]',
               limit: 10000
             }
           }
         ]
       },
-      {test: /\.csv$/, use: [ 
+      {
+        test: /\.csv$/, use: [ 
         {
           loader: "file-loader",
           options: {
-            name: '[name].[ext]'
+            name: (DEVELOPMENT)?'[name].[ext]': 'flight-arrivals/[name].[ext]'
           }
         }]
       }
