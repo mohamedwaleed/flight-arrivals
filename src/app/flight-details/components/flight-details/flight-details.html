@@ -1,4 +1,12 @@
-<div class="container-fluid flight-details-container">
+<div class="container-fluid flight-details-container" ng-if="!$ctrl.selectedFlight || $ctrl.selectedFlight.length === 0">
+    <div class="fa_not_found">
+      <img width="300" src="../../../../assets/images/dribble.png"/>
+      <h1>No available flights from {{$ctrl.origin}} to {{$ctrl.dest}}</h1>
+      <button ng-click="$ctrl.backToDashboard()" class="btn btn-lg btn-success">Back</button>
+    </div>
+</div>
+
+<div ng-if="$ctrl.selectedFlight && $ctrl.selectedFlight.length > 0" class="container-fluid flight-details-container">
     <div class="row">
         <div class="col">
            <h1 class="center">Flights from {{$ctrl.origin}} to {{$ctrl.dest}}</h1>
@@ -51,13 +59,13 @@
                         <td>{{$ctrl.recommendedFlights[0].departureTime}}</td>
                         <td>{{$ctrl.recommendedFlights[0].arrivalTime}}</td>
                       </tr>
-                      <tr ng-if="$ctrl.recommendedFlights[1]" class="table-info">
+                      <tr ng-if="$ctrl.recommendedFlights[1]" class="table-primary">
                         <td>{{$ctrl.recommendedFlights[1].date}}</td>
                         <td>{{$ctrl.recommendedFlights[1].arrivalDelay}} </td>
                         <td>{{$ctrl.recommendedFlights[1].departureTime}}</td>
                         <td>{{$ctrl.recommendedFlights[1].arrivalTime}}</td>
                       </tr>
-                      <tr ng-if="$ctrl.recommendedFlights[2]" class="table-success">
+                      <tr ng-if="$ctrl.recommendedFlights[2]" class="table-primary">
                         <td>{{$ctrl.recommendedFlights[2].date}}</td>
                         <td>{{$ctrl.recommendedFlights[2].arrivalDelay}} </td>
                         <td>{{$ctrl.recommendedFlights[2].departureTime}}</td>

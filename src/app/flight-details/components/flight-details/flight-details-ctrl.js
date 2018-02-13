@@ -23,6 +23,7 @@ class FlightDetailsCtrl {
         this.origin = $stateParams.origin;
         this.dest = $stateParams.destination;
         this.flightService = flightService;
+        this.$state = $state;
 
         let unsubscribe = $ngRedux.connect(this.mapStateToThis, actions)(this);
         $scope.$on('$destroy', unsubscribe);
@@ -213,6 +214,9 @@ class FlightDetailsCtrl {
         }
     }
 
+    backToDashboard() {
+        this.$state.go('app.dashboard');
+    }
 
     mapStateToThis(state) {
         return {
