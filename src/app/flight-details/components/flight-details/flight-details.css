@@ -11,9 +11,10 @@
     right: 0;
     left: 0;
     margin: auto;
-    width: 16%;
+    width: 100%;
     margin-bottom: 15px;
     margin-top: 15px;
+    text-align: center;
 }
 
 
@@ -27,9 +28,9 @@
 
 .filter-control-area {
     margin: auto;
-    width: 220px;
+    width: 464px;
     padding: 20px;
-    
+    width: 105%;
 }
 
 .type-control-area {
@@ -58,4 +59,9 @@
     bottom: 0;
     margin: auto;
     height: 400px;
+}
+
+.fa_type_form {
+    align-items: baseline;
+    padding: 6px;
 }
