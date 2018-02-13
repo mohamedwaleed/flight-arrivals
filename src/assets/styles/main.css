@@ -88,7 +88,7 @@ h1,h2,h3{
 }
 
 #banner-label{
-    font-size: 65px;
+    font-size: 60px;
     font-weight: bold;
     margin-bottom: 50px;
 }
@@ -100,6 +100,44 @@ h1,h2,h3{
     width: 250px;
 }
 
+.fa_input_label {
+    width: 141px;
+}
+
+.control-container {
+    position: relative;
+    display: block;
+    width: 70%;
+    height: 100px;
+    background-color:rgba(0,0,0,.4);
+    border-radius: 10px;
+    margin: auto;
+}
+.fa_control_form{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    height: 100%;
+    margin: auto;
+    width: 100%;
+}
+
+.fa_form_elements {
+    margin: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 78%;
+    padding: 5px;
+}
+
+.fa_search_btn{
+    width: 100px;
+}
 
 /* Ui router animations */
 [ui-view].ng-enter, [ui-view].ng-leave {

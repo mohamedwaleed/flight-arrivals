@@ -5,9 +5,50 @@
                 <div class="overlay">
                     
                     <div class="banner-content">
-                        <h3 id="banner-label">Choose your best flight</h3>
-                        <div>
-                            <button ng-click="$ctrl.gettingStarted()" class="btn btn-success getting-started">Getting started</button>
+                        <h3 id="banner-label">Get your best flight`s date and time</h3>
+                        <div class="control-container">
+
+                                <form class="fa_control_form " ng-submit="$ctrl.showFlightDetails(form)" name="form" novalidate>
+                                    <div class="fa_form_elements form-inline ">
+                                            <div class="form-group mx-sm-3 mb-2">
+                                                    <label for="inputPassword2" class="sr-only">Password</label>
+                                                    <angucomplete-alt id="origin"
+                                                        placeholder="Origin airport (eg. SFO)"
+                                                        pause="300"
+                                                        selected-object="$ctrl.selectedOrigin"
+                                                        local-data="$ctrl.flights"
+                                                        local-search="$ctrl.searchFlights"
+                                                        description-field="realName"
+                                                        minlength="1"
+                                                        input-class="form-control"
+                                                        match-class="highlight"
+                                                        title-field="name"
+                                                        field-required="true"
+                                                        input-name="origin"
+                                                         />
+                                                </div>
+            
+                                                <div class="form-group mx-sm-3 mb-2">
+                                                    <label for="inputPassword2" class="sr-only">Password</label>
+                                                    <angucomplete-alt id="origin"
+                                                        placeholder="Destination airport (eg. SFO)"
+                                                        pause="300"
+                                                        selected-object="$ctrl.selectedDestination"
+                                                        local-data="$ctrl.flights"
+                                                        local-search="$ctrl.searchFlights"
+                                                        description-field="realName"
+                                                        minlength="1"
+                                                        input-class="form-control"
+                                                        match-class="highlight"
+                                                        title-field="name" 
+                                                        field-required="true"
+                                                        input-name="destination"/>
+                                                </div>
+                                                <button type="submit" class="btn btn-success mb-2 fa_search_btn">Search</button>
+                                    </div>
+             
+                                </form>
+                            <!-- <button ng-click="$ctrl.gettingStarted()" class="btn btn-success getting-started">Getting started</button> -->
                         </div>
                     </div>
                     
@@ -17,4 +58,4 @@
     </div>
 </div>
 
-<popup></popup>
+<!-- <popup></popup> -->
