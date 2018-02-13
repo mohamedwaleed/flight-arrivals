@@ -1,9 +1,8 @@
 
 class DashboardCtrl {
-    constructor($document, popupService, $log, $ngRedux, $state, flightService) {
+    constructor($document, $log, $ngRedux, $state, flightService) {
         'ngInject';
         this.$document = $document;
-        this.popupService = popupService;
         this.$log = $log;
         this.selectedOrigin = "";
         this.selectedDestination = "";

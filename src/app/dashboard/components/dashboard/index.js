@@ -1,8 +1,7 @@
 import dashboardTemplate from './dashboard.html';
 import dashboardCtrl from './dashboard-ctrl';
-import popupComponentModule from '../popup';
 
-let dashboardComponentModule = angular.module('dashboard.component', [popupComponentModule.name]);
+let dashboardComponentModule = angular.module('dashboard.component', []);
 
 dashboardComponentModule.component('dashboard', {
     templateUrl: dashboardTemplate,
